@@ -1,0 +1,176 @@
+{
+  "manifest_version": 1,
+  "id": "chatterbox",
+  "version": "26.10.1",
+  "display_name": "Chatterbox (offline, voice clone, 20 languages)",
+  "summary": "Resemble AI's Chatterbox: speaks 20 languages at 24 kHz in the speaker's own voice, cloned from a few seconds of the video, or in one of 8 preset voices. Multilingual (default, 1,263 MB) or Turbo (English only, 725 MB, with [laugh] and [sigh] tags) downloads on its first line. Runs on the CPU at about real time.",
+  "author": "Subtitld",
+  "homepage": "https://github.com/Subtitld/addon-chatterbox",
+  "license": "Apache-2.0 (add-on); MIT (Chatterbox code and weights); preset clips public domain (LibriVox) and CC-BY-4.0 (LibriTTS-R)",
+  "executable": "bin/chatterbox-addon",
+  "protocol": 1,
+  "startup_timeout_sec": 30,
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "tasks": [
+    "tts.synthesize"
+  ],
+  "compute": "cpu",
+  "voice_clone": true,
+  "languages": [
+    "ar",
+    "da",
+    "de",
+    "el",
+    "en",
+    "es",
+    "fi",
+    "fr",
+    "hi",
+    "it",
+    "ko",
+    "ms",
+    "nl",
+    "no",
+    "pl",
+    "pt",
+    "ru",
+    "sv",
+    "sw",
+    "tr"
+  ],
+  "voices": [
+    {
+      "id": "chatterbox-clone",
+      "language": "*",
+      "display_name": "Speaker's own voice (cloned from the video)",
+      "sample_rate": 24000,
+      "requires": [
+        "voice_ref_audio"
+      ]
+    },
+    {
+      "id": "chatterbox-en-woman",
+      "language": "*",
+      "display_name": "English woman",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-en-man",
+      "language": "*",
+      "display_name": "English man",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-pt-woman",
+      "language": "*",
+      "display_name": "Portuguese woman",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-pt-man",
+      "language": "*",
+      "display_name": "Portuguese man",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-fr-woman",
+      "language": "*",
+      "display_name": "French woman",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-fr-man",
+      "language": "*",
+      "display_name": "French man",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-de-woman",
+      "language": "*",
+      "display_name": "German woman",
+      "sample_rate": 24000
+    },
+    {
+      "id": "chatterbox-de-man",
+      "language": "*",
+      "display_name": "German man",
+      "sample_rate": 24000
+    }
+  ],
+  "models": [
+    {
+      "id": "multilingual",
+      "display_name": "Chatterbox Multilingual (0.5B, 4-bit ONNX)",
+      "repo": "onnx-community/chatterbox-multilingual-ONNX",
+      "revision": "452d3f434aa592098f1eedac9099f33642ab2da5",
+      "size_mb": 1263,
+      "license": "MIT",
+      "bundled": false,
+      "default": true
+    },
+    {
+      "id": "turbo",
+      "display_name": "Chatterbox Turbo (350M, 4-bit ONNX, English)",
+      "repo": "ResembleAI/chatterbox-turbo-ONNX",
+      "revision": "d21799bd0354adb85e348b8a0442a8405110a2cf",
+      "size_mb": 725,
+      "license": "MIT",
+      "bundled": false,
+      "default": false,
+      "language": "en"
+    }
+  ],
+  "disk_required_mb": 2000,
+  "ram_required_mb": 2048,
+  "config_schema": {
+    "fields": [
+      {
+        "key": "model",
+        "type": "select",
+        "label": "Model",
+        "default": "multilingual",
+        "options": [
+          {
+            "value": "multilingual",
+            "label": "Multilingual: 20 languages, 1.3 GB, about real time"
+          },
+          {
+            "value": "turbo",
+            "label": "Turbo, English only: 725 MB, less memory, closer to the speaker, takes [laugh], [sigh], [cough]..."
+          }
+        ],
+        "help": "Turbo speaks English only; lines in other languages use Multilingual with it. Only one model is in memory at a time."
+      },
+      {
+        "key": "expressiveness",
+        "type": "number",
+        "label": "Expressiveness",
+        "default": 0.5,
+        "min": 0.25,
+        "max": 2.0,
+        "step": 0.05,
+        "help": "Multilingual only: how much emotion the voice puts in. 0.5 is upstream's default; higher is more dramatic and tends to speak faster."
+      },
+      {
+        "key": "threads",
+        "type": "int",
+        "label": "CPU threads",
+        "default": 0,
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "help": "0 picks half the logical processors, at most 8."
+      },
+      {
+        "key": "voice_ref_audio",
+        "type": "file",
+        "label": "Fallback reference clip",
+        "help": "Cloned by the speaker's own voice when Subtitld has no clip of the speaker to send: 5 to 20 seconds of one person speaking, WAV preferred."
+      }
+    ]
+  }
+}

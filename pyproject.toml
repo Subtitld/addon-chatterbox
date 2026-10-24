@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitld-addon-chatterbox"
+version = "26.10.1"
+description = "Subtitld add-on: offline voice-cloning text-to-speech with Chatterbox Multilingual and Turbo"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Subtitld", email = "jbopen@gmail.com" }]
+requires-python = ">=3.10"
+
+# ONNX Runtime runs the models' ONNX exports; the tokenizers, the signal
+# processing and the generation loop are the add-on's own (numpy), and the
+# downloads use the standard library. Pinned: the graphs were checked with it.
+dependencies = [
+    "onnxruntime==1.31.0",
+    "numpy>=1.26,<3",  # constraints.txt pins the release build
+]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.10"]
+dev = ["pytest>=7.4", "tokenizers>=0.20"]  # tokenizers: only for the parity tests
+
+[project.scripts]
+chatterbox-addon = "chatterbox_addon.__main__:main"
+
+[tool.setuptools]
+packages = ["chatterbox_addon"]
+
+[tool.setuptools.package-data]
+chatterbox_addon = ["pins.json", "presets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["model: needs both models (download about 2 GB on the first run)"]

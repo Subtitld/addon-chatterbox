@@ -1,0 +1,94 @@
+{
+ "multilingual": {
+  "repo": "onnx-community/chatterbox-multilingual-ONNX",
+  "revision": "452d3f434aa592098f1eedac9099f33642ab2da5",
+  "files": [
+   {
+    "path": "onnx/embed_tokens.onnx",
+    "size": 13286,
+    "sha256": "f785819ca4f6271262d5bb8971d62796c3a909e3b031982c113dbe83a4c3b854"
+   },
+   {
+    "path": "onnx/embed_tokens.onnx_data",
+    "size": 68390912,
+    "sha256": "2a15f7dd73b2ee47f6edf87740324011594b5a528ed6471ae55e327ed6cad68c"
+   },
+   {
+    "path": "onnx/language_model_q4.onnx",
+    "size": 227911,
+    "sha256": "7f8cdca83b2493536cbf3acf421199808a3d68736f55f4eabd20ef8a99da4313"
+   },
+   {
+    "path": "onnx/language_model_q4.onnx_data",
+    "size": 353621248,
+    "sha256": "e79ab8784122a501718868b9631ff46e151c552d9b24e50f25d721f375e3526c"
+   },
+   {
+    "path": "onnx/speech_encoder.onnx",
+    "size": 1184608,
+    "sha256": "8f1c8a0f89b77bf9cd5dd8f2e034eb2c79dc00fe70d41196b28c257643b00ccb"
+   },
+   {
+    "path": "onnx/speech_encoder.onnx_data",
+    "size": 591274880,
+    "sha256": "92f8f290fc9720e169bc2412c507209e20b03f6564bc3243739e25c56f7dfb8f"
+   },
+   {
+    "path": "tokenizer.json",
+    "size": 71798,
+    "sha256": "29d48c4a178f6af3ad5130097c34744639e9294847b38a7b912c8c68027cb819"
+   }
+  ]
+ },
+ "turbo": {
+  "repo": "ResembleAI/chatterbox-turbo-ONNX",
+  "revision": "d21799bd0354adb85e348b8a0442a8405110a2cf",
+  "files": [
+   {
+    "path": "onnx/conditional_decoder_q4.onnx",
+    "size": 2179022,
+    "sha256": "dccb7a6cea3472dc7f7d070eeb70ade18e6327fb4ec61a3d62cf211bfed90ea2"
+   },
+   {
+    "path": "onnx/conditional_decoder_q4.onnx_data",
+    "size": 246397384,
+    "sha256": "b5c5317e0b79a1a19dd3d5e2b2091ea06b15716716ab801a54eaeb906c6971ec"
+   },
+   {
+    "path": "onnx/embed_tokens_q4.onnx",
+    "size": 2844,
+    "sha256": "fd6ba1d22902e8f539d3dd6d7c1c44b98ebb4c84ebbb5e47fcb826ddcf667561"
+   },
+   {
+    "path": "onnx/embed_tokens_q4.onnx_data",
+    "size": 37286384,
+    "sha256": "f54a51e234b509b64c3a03bb79e1149fba7e2eba6c2d9c222f18883379e1f5d8"
+   },
+   {
+    "path": "onnx/language_model_q4.onnx",
+    "size": 274572,
+    "sha256": "b39d03d3f8b943b9e60c6fce3fb41191dbc1df4589f913291db1e214eef669b1"
+   },
+   {
+    "path": "onnx/language_model_q4.onnx_data",
+    "size": 204456572,
+    "sha256": "2c029dc0acf48752473d8c74c72b5ceaaad76b9886fe106eaf2022142d5b5d5e"
+   },
+   {
+    "path": "onnx/speech_encoder_q4.onnx",
+    "size": 1200346,
+    "sha256": "37956c20b67bed85a0da4bc83509d67b5969a1b257d1c546516a5236a17ad71e"
+   },
+   {
+    "path": "onnx/speech_encoder_q4.onnx_data",
+    "size": 229560112,
+    "sha256": "58956db217c6443e49c91bdd54d7cf76b4a243f225c748b7bf746459fc27bc7d"
+   },
+   {
+    "path": "tokenizer.json",
+    "size": 3562272,
+    "sha256": "3f04e34bea22f9144d1a19151154095bc9ce0430bf421304f5797e716288a906"
+   }
+  ]
+ }
+}
