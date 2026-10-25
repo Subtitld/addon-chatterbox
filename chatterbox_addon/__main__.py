@@ -648,7 +648,8 @@ def _self_test() -> int:
         'sha256': hashlib.sha256(b'').hexdigest()[:8],
         'ca_bundle': os.environ.get('SSL_CERT_FILE', ''),
     }
-    print(json.dumps(report, ensure_ascii=False), file=sys.__stdout__, flush=True)
+    # ASCII: a Windows console encodes cp1252, which has no combining accents.
+    print(json.dumps(report), file=sys.__stdout__, flush=True)
     return 0 if ok else 1
 
 
