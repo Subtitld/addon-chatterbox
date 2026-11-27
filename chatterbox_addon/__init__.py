@@ -8,6 +8,6 @@ The package exists so the entry point can run both from source
 (`bin/chatterbox-addon`).
 """
 
-__version__ = '26.10.1'
+__version__ = '26.11.1'
 ADDON_ID = 'chatterbox'
 PROTOCOL_VERSION = 1

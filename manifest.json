@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
   "id": "chatterbox",
-  "version": "26.10.1",
+  "version": "26.11.1",
   "display_name": "Chatterbox (offline, voice clone, 20 languages)",
   "summary": "Resemble AI's Chatterbox: speaks 20 languages at 24 kHz in the speaker's own voice, cloned from a few seconds of the video, or in one of 8 preset voices. Multilingual (default, 1,263 MB) or Turbo (English only, 725 MB, with [laugh] and [sigh] tags) downloads on its first line. Runs on the CPU at about real time.",
   "author": "Subtitld",
